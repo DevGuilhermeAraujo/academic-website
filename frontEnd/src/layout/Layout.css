@@ -1,0 +1,39 @@
+/* Define a estrutura básica do layout */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.layout-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.layout-sidebar {
+    position: fixed;
+    top: 80px; /* Altura do header */
+    left: 0;
+    width: 200px; /* Largura do sidebar */
+    height: calc(100vh - 80px); /* Altura da tela menos a altura do header */
+    z-index: 1001;
+}
+
+.layout-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.layout-content {
+    margin-top: 80px; /* Altura do header */
+    margin-left: 200px; /* Largura do sidebar */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto; /* Permite scroll no conteúdo se necessário */
+    transition: margin-left 0.3s ease;
+}

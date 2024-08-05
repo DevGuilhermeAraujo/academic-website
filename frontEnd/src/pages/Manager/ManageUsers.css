@@ -1,0 +1,22 @@
+.manage-users-container {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    transition: margin-left 0.3s ease; /* Suaviza a transição da margem */
+}
+
+.main-content.with-sidebar-expanded {
+    margin-left: 200px; /* Ajuste conforme a largura do seu sidebar */
+}
+
+.table-container {
+    padding: 20px;
+    transition: padding-left 0.3s ease; /* Suaviza a transição do padding */
+}
+
+.main-content.with-sidebar-expanded .table-container {
+    padding-left: 220px; /* Ajuste conforme a largura do seu sidebar */
+}

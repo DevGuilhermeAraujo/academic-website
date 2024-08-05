@@ -1,0 +1,51 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -150px; /* esconde parcialmente o menu inicialmente */
+    width: 200px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: 1001; /* garante que fique acima dos outros elementos */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sidebar.expanded {
+    left: 0;
+}
+
+.sidebar .toggle-button {
+    position: absolute;
+    top: 50%;
+    right: -20px; /* coloca a seta fora do menu quando escondido */
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 60px 20px; /* ajusta o padding e a margem para acomodar a seta */
+}
+
+.sidebar ul li {
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidebar ul li:hover {
+    background-color: #555;
+}

@@ -1,0 +1,110 @@
+/* index.css */
+
+/* CSS personalizado */
+:root {
+  --primary-color: #363636;
+  --secondary-color: #4F4F4F;
+  --tertiary-color: #808080;
+  --white-color: #ffffff;
+  --text-color: #4d4d4d;
+  --text-color-hover: #2c2c2c;
+  --input-background-color: rgba(224, 224, 224, 0.7);
+  --input-border-color: #b0b0b0;
+  --button-color: #007bff;
+  --button-hover-color: #0056b3;
+
+  --theme-light-bg: #f0f0f0;
+  --theme-light-header: var(--primary-color);
+  --theme-light-sidebar: var(--secondary-color);
+  --theme-light-content: var(--white-color);
+  --theme-light-footer: var(--primary-color);
+  --theme-light-text: var(--text-color);
+
+  --theme-dark-bg: #121212;
+  --theme-dark-header: #333;
+  --theme-dark-sidebar: #444;
+  --theme-dark-content: #1e1e1e;
+  --theme-dark-footer: #333;
+  --theme-dark-text: #e0e0e0;
+}
+
+body {
+  background-color: var(--theme-light-bg);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--theme-dark-bg);
+  --header-color: var(--theme-dark-header);
+  --sidebar-color: var(--theme-dark-sidebar);
+  --content-color: var(--theme-dark-content);
+  --footer-color: var(--theme-dark-footer);
+  --text-color: var(--theme-dark-text);
+}
+
+[data-theme="light"] {
+  --bg-color: var(--theme-light-bg);
+  --header-color: var(--theme-light-header);
+  --sidebar-color: var(--theme-light-sidebar);
+  --content-color: var(--theme-light-content);
+  --footer-color: var(--theme-light-footer);
+  --text-color: var(--theme-light-text);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+header {
+  background-color: var(--header-color);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-menu {
+  background-color: var(--content-color);
+  border: none;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item:hover {
+  background-color: var(--button-hover-color);
+  color: var(--white-color);
+}
+
+
+.user-info {
+  color: var(--text-color);
+}
+
+.user-avatar {
+  color: var(--text-color);
+}
+
+
+.button {
+  background-color: var(--button-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

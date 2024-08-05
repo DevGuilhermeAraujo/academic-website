@@ -1,0 +1,68 @@
+/* CSS com alta especificidade para sobrescrever Bootstrap */
+
+/* Estilização da classe .card */
+.card {
+  border-radius: 15px !important; /* Sobrescreve a borda do Bootstrap */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) !important; /* Sobrescreve a sombra do Bootstrap */
+  background-color: rgba(255, 255, 255, 0.9) !important; /* Sobrescreve o fundo do Bootstrap */
+}
+
+/* Estilização do corpo do card */
+.card .card-body {
+  padding: 2rem;
+  background: transparent;
+}
+
+/* Estilização do texto centralizado */
+.card .text-center {
+  color: var(--primary-color); /* Utiliza a variável definida no root */
+}
+
+/* Estilização do logo */
+.card .logo {
+  max-width: 150px;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilização do botão primário */
+.card .btn-primary {
+  background-color: #0a3d62; /* Define a cor do botão */
+  transition: background-color 0.3s;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.card .btn-primary:hover {
+  background-color: #082c4a; /* Altera a cor ao passar o mouse */
+}
+
+/* Estilização do texto secundário */
+.card .text-secondary {
+  color: #4d4d4d; /* Define a cor do texto secundário */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.card .text-secondary:hover {
+  color: #2c2c2c; /* Altera a cor ao passar o mouse */
+}
+
+/* Estilização do input */
+.card .form-control {
+  border: 1px solid #b0b0b0; /* Define a cor da borda */
+  border-radius: 10px;
+  background-color: rgba(224, 224, 224, 0.7);
+  font-size: 1.2rem;
+  padding: 0.75rem;
+}
+
+.card .form-control::placeholder {
+  color: #4d4d4d; /* Define a cor do placeholder */
+}
+
+.card .form-control:focus {
+  border-color: var(--primary-color); /* Utiliza a variável para a cor da borda ao foco */
+  box-shadow: none;
+  background-color: #ffffff; /* Altera o fundo ao foco */
+}

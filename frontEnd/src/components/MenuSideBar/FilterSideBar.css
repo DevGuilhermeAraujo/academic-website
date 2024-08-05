@@ -1,0 +1,57 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -150px; /* ajuste a largura total do sidebar */
+    width: 200px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sidebar.expanded {
+    left: 0;
+}
+
+.sidebar .toggle-button {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar .filter-content {
+    padding: 20px;
+}
+
+.sidebar .filter-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .filter-content form label {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.sidebar .filter-content form input,
+.sidebar .filter-content form select {
+    margin-top: 5px;
+    padding: 8px; /* Ajuste o padding conforme necessário */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+    width: 100%; /* Garante que os campos ocupem toda a largura do sidebar */
+}

@@ -1,0 +1,19 @@
+/* frontend/src/context/ToastContext.css */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1000;
+  }
+  
+  .toast.success {
+    background-color: green;
+  }
+  
+  .toast.error {
+    background-color: red;
+  }
+  

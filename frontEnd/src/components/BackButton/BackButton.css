@@ -1,0 +1,19 @@
+.back-button {
+    position: absolute;
+    top: 100px;  /* Ajuste conforme necessário */
+    right: 50px;  /* Ajuste conforme necessário */
+    background: none;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 24px;  /* Ajuste conforme necessário */
+    cursor: pointer;
+    z-index: 1000;  /* Certifique-se de que o botão esteja acima de outros elementos */
+}
+
+.back-button i {
+    color: #000;  /* Ajuste a cor conforme necessário */
+}
+
+.back-button:hover i {
+    color: #007bff;  /* Cor ao passar o mouse, ajuste conforme necessário */
+}

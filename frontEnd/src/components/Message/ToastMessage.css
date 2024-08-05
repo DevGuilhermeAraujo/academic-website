@@ -1,0 +1,41 @@
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+  }
+  
+  .toast-message.success {
+    border-color: #28a745;
+    color: #28a745;
+  }
+  
+  .toast-message.error {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+  
+  .toast-message p {
+    margin: 0;
+  }
+  
+  .toast-message .close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+  }
+  
