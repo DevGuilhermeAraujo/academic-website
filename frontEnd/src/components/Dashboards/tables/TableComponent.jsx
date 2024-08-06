@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./TableComponent.css";
 
-const TableComponent = ({ headers, data, onUserClick, onSort, sortConfig }) => {
+const TableComponent = ({ headers, data, onClick, onSort, sortConfig }) => {
   // Função para formatar datas, se necessário
   const formatDate = (dateString) => {
     if (!dateString) return "N/A";
@@ -38,10 +38,10 @@ const TableComponent = ({ headers, data, onUserClick, onSort, sortConfig }) => {
               const value = row[header.key];
               const displayValue = header.label.includes("Data") ? formatDate(value) : value;
 
-              if (header.key === "acoes") {
+              if (header.key === "acoes" && onClick) {
                 return (
                   <td key={header.key}>
-                    <button onClick={() => onUserClick(row.ra)} className="btn btn-primary">
+                    <button onClick={() => onClick(row)} className="btn btn-primary">
                       Detalhes
                     </button>
                   </td>
@@ -67,7 +67,7 @@ TableComponent.propTypes = {
     label: PropTypes.string.isRequired
   })).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onUserClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func, // Permite qualquer função de clique
   onSort: PropTypes.func.isRequired,
   sortConfig: PropTypes.object.isRequired,
 };

@@ -6,6 +6,8 @@ import Home from "./pages/Home/Home";
 import CadastroUsuario from "./pages/Cadastros/cadastroUsuario"; // Importe o componente CadastroUsuario
 import ManageUsers from "./pages/Manager/ManageUsers";
 import UserDetails from "./pages/Manager/UserDetails";
+import ManageClass from "./pages/Manager/ManageClass";
+import ClassDetails from "./pages/Manager/ClassDetails";
 import ProtectedRoute from "./components/ProtectedRoute"; // Importe o ProtectedRoute
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path="/cadastrar-usuario" element={<CadastroUsuario />} />
         <Route path="/manage-users" element={<ManageUsers />} />
         <Route path="/user-details/:userRa" element={<UserDetails />} />
+        <Route path="/manage-class" element={<ManageClass />} />
+        <Route path="/class-details/:userRa" element={<ClassDetails />} />
       </Routes>
     </ToastProvider>
   );

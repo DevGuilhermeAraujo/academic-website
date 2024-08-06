@@ -70,7 +70,7 @@ const ManageUsers = () => {
     { key: "genero", label: "Gênero" },
     { key: "dt_NASC", label: "Data de Nascimento" },
     { key: "email", label: "Email" },
-    { key: "dt_REGISTRO", label: "Data de Registro" },
+    { key: "dt_registro", label: "Data de Registro" },
     { key: "acoes", label: "Ações" },
   ];
 
@@ -113,7 +113,7 @@ const ManageUsers = () => {
             <TableComponent 
               headers={headers} 
               data={sortedUsers} 
-              onUserClick={handleUserClick} 
+              onClick={handleUserClick} 
               onSort={handleSort} 
               sortConfig={sortConfig} 
             />

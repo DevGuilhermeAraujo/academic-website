@@ -5,13 +5,14 @@ import bcrypt from 'bcrypt';
 async function criptografarSenhas() {
     try {
         // Selecionar todos os usuários que têm senhas não criptografadas
-        const sql = 'SELECT * FROM usuarios WHERE senha IS NOT NULL AND senha NOT LIKE \'$2b$%\'';
-        const usuarios = await App.db.executar(sql);
+        const sql = 'SELECT * FROM usuarios WHERE password IS NOT NULL AND password NOT LIKE \'$2b$%\'';
+        const parametros = [];
+        const usuarios = await App.db.executar(sql, parametros);
 
         // Para cada usuário, hash a senha e atualize no banco de dados
         for (const usuario of usuarios) {
-            const senhaHash = await bcrypt.hash(usuario.senha, 10); // Hash da senha com salt de 10 rounds
-            const updateSql = 'UPDATE usuarios SET senha = $1 WHERE ra = $2';
+            const senhaHash = await bcrypt.hash(usuario.password, 10); // Hash da senha com salt de 10 rounds
+            const updateSql = 'UPDATE usuarios SET password = ? WHERE ra = ?';
             const parametros = [senhaHash, usuario.ra];
             await App.db.executar(updateSql, parametros);
         }

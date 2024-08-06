@@ -54,7 +54,7 @@ const updateUser = async (req, res) => {
     if (email) data.email = email;
     if (password) {
         // Hash the new password if it is provided
-        data.senha = await bcrypt.hash(password, 10);
+        data.password = await bcrypt.hash(password, 10);
     }
     if (cpf) data.cpf = cpf;
 

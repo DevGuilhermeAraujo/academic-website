@@ -15,9 +15,24 @@ class Permissao {
             WHERE up.usuario_ra = ?`;
         const parametros = [usuarioId];
 
-        await this.db.conectar(); // Conecta ao banco de dados
+        await this.db.conectar();
         const result = await this.db.executar(sql, parametros);
         return result.map(row => row.descricao);
+    }
+
+    async carregarPermissoesTelas(usuarioId) {
+        const sql = `
+            SELECT t.id, t.nome, t.rota
+            FROM permissoes_telas pt
+            JOIN telas t ON pt.tela_id = t.id
+            JOIN grupos g ON pt.grupo_id = g.id
+            JOIN usuario_grupos ug ON g.id = ug.grupo_id
+            WHERE ug.usuario_ra = ?`;
+        const parametros = [usuarioId];
+
+        await this.db.conectar();
+        const result = await this.db.executar(sql, parametros);
+        return result;
     }
 
     static solicitarPermissao(req, permissao) {

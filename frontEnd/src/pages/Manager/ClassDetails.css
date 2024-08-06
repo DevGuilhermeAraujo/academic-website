@@ -1,0 +1,14 @@
+/* ClassDetails.css */
+
+.class-details-container {
+    padding: 20px;
+  }
+  
+  .class-details-container .class-details-tabs {
+    margin-top: 20px;
+  }
+  
+  .class-details-form .form-group {
+    margin-bottom: 15px;
+  }
+  

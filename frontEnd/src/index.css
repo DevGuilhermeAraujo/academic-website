@@ -26,6 +26,10 @@
   --theme-dark-content: #1e1e1e;
   --theme-dark-footer: #333;
   --theme-dark-text: #e0e0e0;
+
+  --sidebar-width: 250px;
+  /* Aumenta a largura da sidebar */
+  --toggle-button-width: 40px;
 }
 
 body {

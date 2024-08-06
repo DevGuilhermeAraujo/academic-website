@@ -22,7 +22,7 @@ class User {
     }
 
     async create(data) {
-        const sql = 'INSERT INTO usuarios (ra, nome, cpf, genero, dt_NASC, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        const sql = 'INSERT INTO usuarios (ra, nome, cpf, genero, dt_NASC, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)';
         const parametros = [
             data.ra ?? null,
             data.nome ?? null,

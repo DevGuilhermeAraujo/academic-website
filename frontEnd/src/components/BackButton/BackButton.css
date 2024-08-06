@@ -7,7 +7,7 @@
     padding: 10px;
     font-size: 24px;  /* Ajuste conforme necessário */
     cursor: pointer;
-    z-index: 1000;  /* Certifique-se de que o botão esteja acima de outros elementos */
+    z-index: 999;  /* Certifique-se de que o botão esteja acima de outros elementos */
 }
 
 .back-button i {

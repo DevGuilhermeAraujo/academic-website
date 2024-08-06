@@ -1,15 +1,17 @@
-/* src/components/Sidebar.css */
+/* CSS para Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -150px; /* esconde parcialmente o menu inicialmente */
-    width: 200px;
+    left: -200px; /* Ajuste a largura total do sidebar */
+    width: 250px;
     height: 100vh;
     background-color: var(--primary-color);
     transition: left 0.3s ease;
-    z-index: 1001; /* garante que fique acima dos outros elementos */
+    z-index: 1001;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    overflow-y: auto; /* Adiciona barra de rolagem vertical quando necessário */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
 }
 
 .sidebar.expanded {
@@ -19,10 +21,10 @@
 .sidebar .toggle-button {
     position: absolute;
     top: 50%;
-    right: -20px; /* coloca a seta fora do menu quando escondido */
+    right: -20px; /* Coloca a seta para fora do menu quando escondido */
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-color: #333;
     color: #fff;
     display: flex;
@@ -36,16 +38,103 @@
 .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin: 60px 20px; /* ajusta o padding e a margem para acomodar a seta */
+    margin: 0; /* Remove a margem do menu */
 }
 
 .sidebar ul li {
     color: #fff;
-    padding: 10px;
+    padding: 10px 15px; /* Ajuste o padding conforme necessário */
     cursor: pointer;
-    text-align: center;
+    text-align: left;
+    position: relative;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Impede quebra de linha dos itens */
+    border-bottom: 1px solid #fff; /* Adiciona uma borda entre os itens */
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
 }
 
 .sidebar ul li:hover {
     background-color: #555;
+}
+
+.sidebar ul li svg {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.sidebar ul .menu-pai {
+    padding-left: 20px; /* Indenta o menu pai */
+}
+
+.sidebar ul .menu-pai .arrow {
+    margin-left: 10px;
+}
+
+.sidebar ul .sub-menu {
+    list-style-type: none;
+    margin: 5px 0 0 0; /* Remove a margem esquerda do sub-menu */
+    padding-left: 20px; /* Adiciona padding à esquerda do sub-menu */
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar ul .sub-menu li {
+    background-color: #444;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul .sub-menu li svg {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.sidebar ul .sub-menu li:hover {
+    background-color: #666;
+}
+
+/* Adicione isso ao seu arquivo Sidebar.css */
+
+.sidebar .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Adiciona uma borda sutil abaixo da logo */
+}
+
+.sidebar .logo-container img {
+    max-width: 100%; /* Garante que a logo não ultrapasse a largura do sidebar */
+    height: auto;
+}
+
+
+
+/* Estilização para utilização do filtro */
+.sidebar .filter-content {
+    padding: 20px;
+}
+
+.sidebar .filter-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .filter-content form label {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.sidebar .filter-content form input,
+.sidebar .filter-content form select {
+    margin-top: 5px;
+    padding: 8px; /* Ajuste o padding conforme necessário */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+    width: 100%; /* Garante que os campos ocupem toda a largura do sidebar */
 }

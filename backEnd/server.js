@@ -6,6 +6,7 @@ import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import classRoutes from './routes/classRoutes.js';
 
 const app = express();
 const port = 3001;
@@ -22,6 +23,7 @@ app.use(session({
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/class', classRoutes)
 
 async function inicializarServidor() {
     try {
