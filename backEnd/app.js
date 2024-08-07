@@ -6,14 +6,14 @@ import Class from './models/Class.js';
 class App {
     static db;
     static user;
-    static permissao;
+    static permission;
     static class;
 
     static async init() {
         App.db = new Conexao();
         //await App.db.conectar(); // Certifique-se de que a conexão está sendo estabelecida
         App.user = new User(App.db);
-        App.permissao = new Permissao(App.db); // Cria uma instância com o banco de dados
+        App.permission = new Permissao(App.db); // Cria uma instância com o banco de dados
         App.class = new Class(App.db);
     }
 }

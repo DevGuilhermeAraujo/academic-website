@@ -1,0 +1,22 @@
+/* src/pages/Manager/AccessManagement.css */
+
+.access-management-container {
+    padding: 20px;
+  }
+  
+  .access-management-tabs {
+    margin-top: 20px;
+  }
+  
+  .screens-list, .groups-list {
+    margin-top: 20px;
+  }
+  
+  .group-details {
+    margin-top: 20px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  

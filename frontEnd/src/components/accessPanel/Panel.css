@@ -1,0 +1,66 @@
+.panel-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.link-groups-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.group-list {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.group-list h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.group-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.group-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.group-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.panel-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-buttons button {
+  margin: 5px 0;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.panel-actions button {
+  flex: 1;
+  margin: 0 5px;
+}

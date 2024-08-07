@@ -21,7 +21,7 @@ const login = async (req, res) => {
         const passwordCorreta = await bcrypt.compare(password, usuario.password);
         if (passwordCorreta) {
             // Utilize o método de instância carregarPermissoes
-            const permissoes = await App.permissao.carregarPermissoes(usuario.ra);
+            const permissoes = await App.permission.carregarPermissoes(usuario.ra);
             // Chame o método estático armazenarSessao diretamente da classe Permissao
             Permissao.armazenarSessao(req, usuario, permissoes);
             res.status(200).json({

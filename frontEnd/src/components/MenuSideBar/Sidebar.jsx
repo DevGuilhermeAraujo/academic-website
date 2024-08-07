@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Collapse } from 'react-bootstrap';
-import { FaChevronDown, FaChevronUp, FaChevronRight, FaChevronLeft, FaUserPlus, FaUsers, FaChalkboardTeacher, FaBook, FaCalendar, FaFile, FaTachometerAlt, FaGraduationCap, FaFolderOpen, FaCog, FaComments } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp, FaChevronRight, FaChevronLeft, FaUserPlus, FaUsers, FaChalkboardTeacher, FaBook, FaCalendar, FaFile, FaTachometerAlt, FaGraduationCap, FaFolderOpen, FaCog, FaComments, FaLock } from 'react-icons/fa';
 import './Sidebar.css';
 
 const Sidebar = () => {
     const [expanded, setExpanded] = useState(false);
     const [permissoes, setPermissoes] = useState([]);
-    const [gerenciamentoExpanded, setGerenciamentoExpanded] = useState(false); // Estado para o menu de gerenciamento
-    const [academicoExpanded, setAcademicoExpanded] = useState(false); // Estado para o menu acadêmico
-    const navigate = useNavigate(); // Hook para navegação
+    const [gerenciamentoExpanded, setGerenciamentoExpanded] = useState(false);
+    const [academicoExpanded, setAcademicoExpanded] = useState(false);
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setExpanded(!expanded);
     };
 
     useEffect(() => {
-        // Lógica para verificar e atualizar as permissões do usuário
         const permissoesDoLocalStorage = JSON.parse(localStorage.getItem('userPermissions')) || [];
         setPermissoes(permissoesDoLocalStorage);
     }, []);
@@ -27,12 +26,12 @@ const Sidebar = () => {
 
     const toggleGerenciamentoMenu = () => {
         setGerenciamentoExpanded(!gerenciamentoExpanded);
-        setAcademicoExpanded(false); // Fecha o menu acadêmico quando abre o menu de gerenciamento
+        setAcademicoExpanded(false);
     };
 
     const toggleAcademicoMenu = () => {
         setAcademicoExpanded(!academicoExpanded);
-        setGerenciamentoExpanded(false); // Fecha o menu de gerenciamento quando abre o menu acadêmico
+        setGerenciamentoExpanded(false);
     };
 
     const hasPermission = (requiredPermissions) => {
@@ -43,10 +42,10 @@ const Sidebar = () => {
         <div 
             className={`sidebar ${expanded ? 'expanded' : ''}`}
             onMouseEnter={toggleSidebar}
-            onMouseLeave={() => setExpanded(false)} // Colapsa o menu ao sair do mouse
+            onMouseLeave={() => setExpanded(false)}
         >
             <div className="logo-container">
-                <img src="/path/to/your/logo.png" alt="Logo da Instituição" /> {/* Substitua pelo caminho correto da logo */}
+                <img src="/path/to/your/logo.png" alt="Logo da Instituição" />
             </div>
             <div className="toggle-button" onClick={toggleSidebar}>
                 {expanded ? <FaChevronLeft /> : <FaChevronRight />}
@@ -62,6 +61,7 @@ const Sidebar = () => {
                                 <li onClick={() => handleNavigate('/manage-class')}><FaChalkboardTeacher /> Gerenciar Turmas</li>
                                 <li onClick={() => handleNavigate('/cadastrar-materias')}><FaBook /> Cadastrar Matérias</li>
                                 <li onClick={() => handleNavigate('/configuracoes')}><FaCog /> Configurações</li>
+                                <li onClick={() => handleNavigate('/access-management')}><FaLock /> Acessos</li>
                             </ul>
                         </Collapse>
                     </li>
