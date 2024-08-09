@@ -15,7 +15,7 @@ class Class {
         return { data: result.rows, success: true, message: 'Class not found.' };
     }
 
-    async create(data) {
+    async createClass(data) {
         const sql = 'INSERT INTO classes (nome) VALUES (?)';
         const parametros = [
             data.nome ?? null

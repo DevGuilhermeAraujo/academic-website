@@ -15,7 +15,7 @@ const AccessManagement = () => {
 
   useEffect(() => {
     // Fetch all screens
-    axios.get('http://localhost:3001/api/access/getScreens')
+    axios.get('http://localhost:3001/api/permissions/getScreens')
       .then(response => {
         setScreens(response.data);
       })
@@ -24,7 +24,7 @@ const AccessManagement = () => {
       });
 
     // Fetch all groups
-    axios.get('http://localhost:3001/api/access/getGroups')
+    axios.get('http://localhost:3001/api/groups/getGroups')
       .then(response => {
         setGroups(response.data);
       })

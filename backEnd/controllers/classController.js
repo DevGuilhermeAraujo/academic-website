@@ -26,7 +26,7 @@ const getClassById = async (req, res) => {
 const createClass = async (req, res) => {
     const { nome, descricao, professor_id } = req.body;
     try {
-        const response = await App.class.create({ nome, descricao, professor_id });
+        const response = await App.class.createClass({ nome, descricao, professor_id });
         if (response && response.success) {
             res.status(200).json({ mensagem: 'Class created successfully', insertId: response.insertId });
         } else {

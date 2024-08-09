@@ -23,7 +23,8 @@ function Login() {
         // Salvar informações no localStorage
         localStorage.setItem('userRa', response.data.usuario.ra);
         localStorage.setItem('userName', response.data.usuario.nome);
-        localStorage.setItem('userPermissions', JSON.stringify(response.data.usuario.permissoes));
+        console.log(response.data.usuario.permissoes);
+        localStorage.setItem('userGroups', JSON.stringify(response.data.usuario.permissoes));
         sessionStorage.setItem('authToken', response.data.token); // Salve o token de autenticação no localStorage
         navigate('/home'); // Redirecionamento após login bem-sucedido
       }

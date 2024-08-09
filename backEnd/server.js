@@ -1,13 +1,16 @@
 import express from 'express';
 import session from 'express-session';
-import criptografarSenhas from './services/criptografarSenhas.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+
+// Importar as rotas
 import authRoutes from './routes/authRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import classRoutes from './routes/classRoutes.js';
-import accessRoutes from './routes/accessRoutes.js'; // Importe as novas rotas
+import permissionRoutes from './routes/permissionRoutes.js'; // Renomeado e importado as rotas de permissões
+import groupRoutes from './routes/groupRoutes.js'; // Importado as rotas de grupos
+import sessionRoutes from './routes/sessionRoutes.js'; // Importado as rotas de sessões
 
 const app = express();
 const port = 3001;
@@ -21,15 +24,18 @@ app.use(session({
     saveUninitialized: false
 }));
 
+// Usar as rotas importadas
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/class', classRoutes)
-app.use('/api/access', accessRoutes); // Adicione as novas rotas
+app.use('/api/class', classRoutes);
+app.use('/api/permissions', permissionRoutes); // Usar rotas de permissões
+app.use('/api/groups', groupRoutes); // Usar rotas de grupos
+app.use('/api/sessions', sessionRoutes); // Usar rotas de sessões
 
 async function inicializarServidor() {
     try {
-        //await criptografarSenhas();
+        //await criptografarSenhas(); // Mantenha esse trecho se necessário para criptografar senhas
 
         app.listen(port, () => {
             console.log(`Servidor rodando em http://localhost:${port}`);

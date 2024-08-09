@@ -3,10 +3,11 @@ import axios from 'axios';
 import Layout from '../../layout/Layout';
 import Panel from '../../components/accessPanel/Panel';
 import './LinkGroups.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const LinkGroups = () => {
     const { screenId } = useParams(); // Obtém o parâmetro da URL
+    const navigate = useNavigate();
 
     const [availableGroups, setAvailableGroups] = useState([]);
     const [linkedGroups, setLinkedGroups] = useState([]);
@@ -17,7 +18,7 @@ const LinkGroups = () => {
 
     useEffect(() => {
         // Fetch both available and linked groups in one request
-        axios.get(`http://localhost:3001/api/access/groupsData/${screenId}`)
+        axios.get(`http://localhost:3001/api/groups/getGroupsData/${screenId}`)
             .then(response => {
                 const { availableGroups, linkedGroups } = response.data;
 
@@ -76,7 +77,7 @@ const LinkGroups = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:3001/api/access/linkGroups', payload);
+            const response = await axios.post('http://localhost:3001/api/groups/linkGroups', payload);
             if (response.data.success) {
                 console.log('Grupos atualizados com sucesso');
             } else {
@@ -88,8 +89,14 @@ const LinkGroups = () => {
     };
 
     const handleCancel = () => {
-        // Cancel changes
-        console.log('Cancelling changes...');
+        // Limpa os estados das variáveis
+        setAvailableGroups(initialAvailableGroups);
+        setLinkedGroups(initialLinkedGroups);
+        setSelectedAvailableGroups([]);
+        setSelectedLinkedGroups([]);
+
+        // Navega para a página anterior
+        navigate('/access-management');
     };
 
     return (

@@ -82,7 +82,7 @@ const ManageUsers = () => {
   };
 
   const handleUserClick = (userRa) => {
-    navigate(`/user-details/${userRa}`);
+    navigate(`/user-details/${userRa.ra}`);
   };
 
   const handleSort = (key) => {

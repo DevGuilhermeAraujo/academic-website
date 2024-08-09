@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import App from '../app.js';
 import authService from '../services/authService.js';
-import Permissao from '../models/Permissao.js'; // Adicione esta importação
+import Permissao from '../models/Permission.js'; // Adicione esta importação
 
 const login = async (req, res) => {
     const { ra, password } = req.body;
@@ -21,15 +21,15 @@ const login = async (req, res) => {
         const passwordCorreta = await bcrypt.compare(password, usuario.password);
         if (passwordCorreta) {
             // Utilize o método de instância carregarPermissoes
-            const permissoes = await App.permission.carregarPermissoes(usuario.ra);
+            const userGroups = await App.permission.getGroupById(usuario.ra);
             // Chame o método estático armazenarSessao diretamente da classe Permissao
-            Permissao.armazenarSessao(req, usuario, permissoes);
+            Permissao.armazenarSessao(req, usuario, userGroups);
             res.status(200).json({
                 mensagem: 'Login bem-sucedido',
                 usuario: {
                     ra: usuario.ra,
                     nome: usuario.nome,
-                    permissoes: permissoes
+                    permissoes: userGroups
                 }
             });
         } else {

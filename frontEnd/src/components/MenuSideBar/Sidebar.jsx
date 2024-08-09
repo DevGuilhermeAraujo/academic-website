@@ -16,8 +16,9 @@ const Sidebar = () => {
     };
 
     useEffect(() => {
-        const permissoesDoLocalStorage = JSON.parse(localStorage.getItem('userPermissions')) || [];
-        setPermissoes(permissoesDoLocalStorage);
+        const permissoesDoLocalStorage = JSON.parse(localStorage.getItem('userGroups')) || [];
+        const grupoIds = permissoesDoLocalStorage.map(permissao => permissao.grupo_id);
+        setPermissoes(grupoIds);
     }, []);
 
     const handleNavigate = (path) => {
@@ -51,7 +52,7 @@ const Sidebar = () => {
                 {expanded ? <FaChevronLeft /> : <FaChevronRight />}
             </div>
             <ul className="list-unstyled">
-                {hasPermission(['Gerente']) && (
+                {hasPermission([1]) && (
                     <li className="menu-pai" onClick={toggleGerenciamentoMenu}>
                         Gerenciamento {gerenciamentoExpanded ? <FaChevronUp /> : <FaChevronDown />}
                         <Collapse in={gerenciamentoExpanded}>
@@ -66,7 +67,7 @@ const Sidebar = () => {
                         </Collapse>
                     </li>
                 )}
-                {hasPermission(['Aluno']) && (
+                {hasPermission([1]) && (
                     <>
                         <li onClick={() => handleNavigate('/disciplinas')}><FaGraduationCap /> Disciplinas</li>
                         <li className="menu-pai" onClick={toggleAcademicoMenu}>
@@ -89,7 +90,7 @@ const Sidebar = () => {
                         </li>
                     </>
                 )}
-                {hasPermission(['Comunicação']) && (
+                {hasPermission([1]) && (
                     <li onClick={() => handleNavigate('/comunicacao')}><FaComments /> Comunicação</li>
                 )}
             </ul>
