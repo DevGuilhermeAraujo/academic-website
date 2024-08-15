@@ -1,22 +1,174 @@
-/* src/pages/Manager/AccessManagement.css */
-
 .access-management-container {
-    padding: 20px;
-  }
-  
-  .access-management-tabs {
-    margin-top: 20px;
-  }
-  
-  .screens-list, .groups-list {
-    margin-top: 20px;
-  }
-  
-  .group-details {
-    margin-top: 20px;
-  }
-  
-  .table {
-    margin-top: 20px;
-  }
-  
+  padding: 20px;
+}
+
+.access-management-tabs {
+  margin-top: 20px;
+}
+
+.screens-list,
+.groups-list,
+.group-details {
+  margin-top: 20px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.modal-body{
+  height: 400px;
+}
+
+.group-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.link-groups-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 10%;
+}
+
+.link-groups-actions button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.link-groups-actions button:hover {
+  color: #007bff;
+}
+
+.arrow-button:first-of-type {
+  margin-bottom: 10px;
+  /* Espaçamento entre os botões */
+}
+
+/* .arrow-button:hover {
+  background-color: var(--primary-hover-color);
+  color: #fff;
+  border-color: var(--primary-hover-color);
+} */
+
+.modal-title {
+  text-align: center;
+  width: 100%;
+}
+
+.group-selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.available-groups,
+.linked-groups {
+  width: 45%;
+  background-color: var(--background-light);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.available-groups ul,
+.linked-groups ul {
+  list-style-type: none;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Para Firefox */
+  scrollbar-color: #888 transparent; /* Cor da barra de rolagem no Firefox */
+}
+
+.available-groups ul::-webkit-scrollbar,
+.linked-groups ul::-webkit-scrollbar {
+  width: 6px; /* Barra de rolagem mais fina */
+}
+
+.available-groups ul::-webkit-scrollbar-track,
+.linked-groups ul::-webkit-scrollbar-track {
+  background: transparent; /* Fundo transparente da barra de rolagem */
+}
+
+.available-groups ul::-webkit-scrollbar-thumb,
+.linked-groups ul::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor da barra de rolagem */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.available-groups ul::-webkit-scrollbar-thumb:hover,
+.linked-groups ul::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor ao passar o mouse sobre a barra de rolagem */
+}
+
+/* Estilos para os itens da lista */
+.available-groups ul li,
+.linked-groups ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  /* Transição suave para o efeito de hover */
+  cursor: pointer;
+  border-radius: 4px;
+  /* Bordas arredondadas */
+}
+
+/* Estilos para o rótulo */
+.available-groups ul li label,
+.linked-groups ul li label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  border-radius: 4px;
+  /* Bordas arredondadas para o efeito de seleção */
+}
+
+/* Oculta o quadrado do checkbox mas mantém o comportamento clicável */
+.available-groups ul li input,
+.linked-groups ul li input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Efeito de hover no item da lista */
+.available-groups ul li:hover,
+.linked-groups ul li:hover {
+  background-color: #0056b3;
+  /* Cor de fundo azul escuro para o hover */
+  color: #fff;
+  /* Cor do texto para contraste */
+}
+
+/* Efeito de seleção visual */
+.available-groups ul li input:checked+label,
+.linked-groups ul li input:checked+label {
+  background-color: #007bff;
+  /* Cor de fundo azul para a seleção */
+  color: #fff;
+  /* Cor do texto para contraste */
+}
+
+/* Garante que o efeito de seleção não seja sobrescrito pelo hover */
+.available-groups ul li input:checked+label:hover,
+.linked-groups ul li input:checked+label:hover {
+  background-color: #007bff;
+  /* Mantém a cor azul quando selecionado e em hover */
+} 

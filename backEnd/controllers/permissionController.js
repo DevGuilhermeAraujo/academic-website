@@ -10,7 +10,6 @@ const getAccessByUser = async (req, res) => {
     }
 };
 
-
 const getScreens = async (req, res) => {
     try {
         const screens = await App.screen.getAllScreens();
@@ -19,8 +18,6 @@ const getScreens = async (req, res) => {
         res.status(500).send('Error fetching screens');
     }
 };
-
-
 
 export default {
     getAccessByUser,
