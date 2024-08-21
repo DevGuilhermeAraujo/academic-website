@@ -86,12 +86,45 @@ const getLinkedGroups = async (req, res) => {
 const getGroupDetails = async (req, res) => {
     const { groupId } = req.params;
     try {
-        const groupDetails = await App.permission.getGroupDetails(groupId);
-        res.json(groupDetails);
+        // Chama as funções para obter telas e usuários
+        const groupScreensResponse = await App.group.getGroupScreens(groupId);
+        const groupUsersResponse = await App.group.getGroupUsers(groupId);
+
+        // Verifica se a resposta foi bem-sucedida
+        if (!groupScreensResponse.success || !groupUsersResponse.success) {
+            return res.status(500).send('Error fetching group details');
+        }
+
+        // Extrai os dados dos resultados
+        const groupScreens = groupScreensResponse.result || [];
+        const groupUsers = groupUsersResponse.result || [];
+
+        // Verifica se os dados foram retornados corretamente
+        if (!Array.isArray(groupScreens) || !Array.isArray(groupUsers)) {
+            return res.status(500).send('Error processing group details');
+        }
+
+        // Estrutura os dados no formato desejado
+        const result = [
+            groupScreens.map(screen => ({
+                id: screen.screenId,
+                nome: screen.screenName
+            })),
+            groupUsers.map(user => ({
+                id: user.userId,
+                nome: user.userName
+            }))
+        ];
+
+        // Envia a resposta como JSON
+        res.json(result);
     } catch (error) {
+        console.error('Erro ao buscar detalhes do grupo:', error);
         res.status(500).send('Error fetching group details');
     }
 };
+
+
 
 export default {
     getAllGroups,

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { ToastProvider } from "./context/ToastContext"; // Importe o ToastProvider
 import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
-import CadastroUsuario from "./pages/Cadastros/cadastroUsuario"; // Importe o componente CadastroUsuario
+import CadastroUsuario from "./pages/Manager/cadastroUsuario"; // Importe o componente CadastroUsuario
 import ManageUsers from "./pages/Manager/ManageUsers";
 import UserDetails from "./pages/Manager/UserDetails";
 import ManageClass from "./pages/Manager/ManageClass";
