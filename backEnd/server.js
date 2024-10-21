@@ -11,6 +11,7 @@ import classRoutes from './routes/classRoutes.js';
 import permissionRoutes from './routes/permissionRoutes.js'; // Renomeado e importado as rotas de permissões
 import groupRoutes from './routes/groupRoutes.js'; // Importado as rotas de grupos
 import sessionRoutes from './routes/sessionRoutes.js'; // Importado as rotas de sessões
+import disciplinesRoutes from './routes/disciplinesRoutes.js';
 
 const app = express();
 const port = 3001;
@@ -32,6 +33,7 @@ app.use('/api/class', classRoutes);
 app.use('/api/permissions', permissionRoutes); // Usar rotas de permissões
 app.use('/api/groups', groupRoutes); // Usar rotas de grupos
 app.use('/api/sessions', sessionRoutes); // Usar rotas de sessões
+app.use('/api/disciplines', disciplinesRoutes); // Usar rotas de disciplinas
 
 async function inicializarServidor() {
     try {

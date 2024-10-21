@@ -11,6 +11,7 @@ import ClassDetails from "./pages/Manager/ClassDetails";
 import AccessManagement from "./pages/Manager/AccessManagement.jsx"; // Importe o novo componente AccessManagement
 import LinkGroups from "./pages/Manager/LinkGroups"; // Importe o componente LinkGroups
 import ProtectedRoute from "./components/ProtectedRoute"; // Importe o ProtectedRoute
+import ManageDiscplines from "./pages/Manager/ManageDisciplines.jsx";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/class-details/:userRa" element={<ClassDetails />} />
         <Route path="/access-management" element={<AccessManagement />} /> {/* Adicione a nova rota */}
         <Route path="/link-groups/:screenId" element={<LinkGroups />} /> {/* Rota para LinkGroups */}
+        <Route path="/manage-disciplines" element={<ManageDiscplines />} />
       </Routes>
     </ToastProvider>
   );

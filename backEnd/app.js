@@ -4,6 +4,7 @@ import Permission from './models/Permission.js';
 import Class from './models/Class.js';
 import Group from './models/Group.js';
 import Screen from './models/Screen.js';
+import Disciplines from './models/Disciplines.js';
 
 class App {
     static db;
@@ -12,6 +13,7 @@ class App {
     static class;
     static group;
     static screen;
+    static disciplines;
 
     static async init() {
         App.db = new Conexao();
@@ -21,6 +23,7 @@ class App {
         App.class = new Class(App.db);
         App.group = new Group(App.db);
         App.screen = new Screen(App.db);
+        App.disciplines = new Disciplines(App.db);
     }
 }
 

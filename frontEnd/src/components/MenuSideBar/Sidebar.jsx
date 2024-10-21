@@ -60,7 +60,7 @@ const Sidebar = () => {
                                 <li onClick={() => handleNavigate('/cadastrar-usuario')}><FaUserPlus /> Cadastrar Usuário</li>
                                 <li onClick={() => handleNavigate('/manage-users')}><FaUsers /> Gerenciar Usuários</li>
                                 <li onClick={() => handleNavigate('/manage-class')}><FaChalkboardTeacher /> Gerenciar Turmas</li>
-                                <li onClick={() => handleNavigate('/cadastrar-materias')}><FaBook /> Cadastrar Matérias</li>
+                                <li onClick={() => handleNavigate('/manage-disciplines')}><FaBook /> Gerenciar Disciplinas</li>
                                 <li onClick={() => handleNavigate('/configuracoes')}><FaCog /> Configurações</li>
                                 <li onClick={() => handleNavigate('/access-management')}><FaLock /> Acessos</li>
                             </ul>
